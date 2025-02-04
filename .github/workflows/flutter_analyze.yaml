@@ -17,7 +17,9 @@ jobs:
           channel: stable
 
       - name: Get dependencies
+        working-directory: frontend
         run: flutter pub get
 
       - name: Run Flutter Analyzer
+        working-directory: frontend
         run: flutter analyze
