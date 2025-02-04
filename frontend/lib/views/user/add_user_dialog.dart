@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import '../../viewmodels/user_viewmodel.dart';
 
 class AddUserDialog extends StatefulWidget {
-  const AddUserDialog({Key? key}) : super(key: key);
+  const AddUserDialog({super.key});
 
   @override
   State<AddUserDialog> createState() => _AddUserDialogState();
