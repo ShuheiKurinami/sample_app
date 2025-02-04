@@ -28,7 +28,7 @@ class UserViewModel extends ChangeNotifier {
   }
 
   Future<void> deleteUser(int id) async {
-    await _repo.deleteUser(id!);
+    await _repo.deleteUser(id);
     await fetchUsers();
   }
 }

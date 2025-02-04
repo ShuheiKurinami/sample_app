@@ -4,7 +4,7 @@ import '../../viewmodels/user_viewmodel.dart';
 import 'add_user_dialog.dart';
 
 class UserView extends StatelessWidget {
-  cconst UserView({super.key});
+  const UserView({super.key});
   
   @override
   Widget build(BuildContext context) {

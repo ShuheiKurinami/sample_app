@@ -29,7 +29,7 @@ void main() {
       final user = await repo.createUser(
         User(id: 0, name: "Delete", email: "delete@example.com"),
       );
-      await repo.deleteUser(user.id);
+      await repo.deleteUser(user.id!);
       final list = await repo.listUsers();
       expect(list.any((u) => u.id == user.id), false);
     });
