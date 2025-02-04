@@ -13,7 +13,7 @@ class UserViewModel extends ChangeNotifier {
 
   Future<User> addUser(String name, String email) async {
     final user = await _repo.createUser(
-      User(id: 0, name: name, email: email),
+      User(name: name, email: email),
     );
     await fetchUsers();
     return user;
