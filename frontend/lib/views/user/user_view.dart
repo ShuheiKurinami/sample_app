@@ -8,20 +8,31 @@ class UserView extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    final vm = Provider.of<UserViewModel>(context);
     return Scaffold(
       appBar: AppBar(title: const Text('Users')),
-      body: ListView.builder(
-        itemCount: vm.users.length,
-        itemBuilder: (context, index) {
-          final user = vm.users[index];
-          return ListTile(
-            title: Text(user.name),
-            subtitle: Text(user.email),
-            trailing: IconButton(
-              icon: const Icon(Icons.delete),
-              onPressed: () => vm.deleteUser(user.id!),
-            ),
+      body: Consumer<UserViewModel>(
+        builder: (context, vm, child) {
+          return ListView.builder(
+            itemCount: vm.users.length,
+            itemBuilder: (context, index) {
+              final user = vm.users[index];
+              return ListTile(
+                title: Text(user.name),
+                subtitle: Text(user.email),
+                trailing: IconButton(
+                  icon: const Icon(Icons.delete),
+                  onPressed: () {
+                    if (user.id != null) {
+                      vm.deleteUser(user.id!);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('User id is null')),
+                      );
+                    }
+                  },
+                ),
+              );
+            },
           );
         },
       ),
